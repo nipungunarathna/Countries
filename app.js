@@ -1,8 +1,8 @@
 let tblCountries=document.getElementById("tblcountry");
 let tblBody=`
             <tr>
-                <th>Name</th>
-                <th>Flag</th>
+                <th><h1>Name</h1></th>
+                <th><h1>Flag</h1></th>
             </tr>
             `;
 
@@ -13,8 +13,16 @@ let tblBody=`
                 tblBody+=
                 `
                     <tr>
-                        <td>${element.name.common}</td>
-                        <td>${element.flag}</td>
+                        <td>
+                            <h3>${element.name.common}</h3>
+                            <p>Official Name: ${element.name.official}</p>
+                             <p>Flag Description:<br> ${element.flags.alt}</p>
+                        </td>
+                        <td>
+                            <img src="${element.flags.png}">
+                           
+                        </td>
+
                     </tr>
                 `
                 
@@ -22,3 +30,24 @@ let tblBody=`
             tblCountries.innerHTML=tblBody;
 
      })
+
+
+function searchByName(){
+
+    let search=document.getElementById("txtInput").value;
+
+    let flag=document.getElementById("flagImg");
+    let name=document.getElementById("name");
+    let officialName=document.getElementById("officialName");
+
+    fetch(`https://restcountries.com/v3.1/name/${search}`)
+    .then(res=>res.json())
+    .then(data=>{
+        data.forEach(obj=>{
+            console.log(obj);
+            flag.src=obj.flags.png;
+            name.innerText=obj.name.common;
+            officialName.innerText=obj.name.official;
+        })
+    })
+}
