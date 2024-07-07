@@ -9,16 +9,16 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body style="background-color: black;">
+<body style="background-attachment: fixed; background-image: url(https://images.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)">
     <h1 style="position:relative; align-content: center; justify-content: center; display: flex; color: white;">
         Countries</h1>
 
 
        <div class="d-flex">
             <input id="txtInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button onclick="searchByName()" class="btn btn-outline-success" type="submit">Search</button>
+            <button onclick="searchByName()" class="btn btn-primary" type="submit">Search</button>
         </div>
-
+<!--
     <div class="container; bg-white ;position-relative; mt-2 mb-2" style="width: fit-content;" id="countryDetails">
         <div class="row">
             <img src="" alt="flag" id="flagImg" style="height:100px; width:200px">
@@ -26,6 +26,18 @@
             <p id="officialName">Official name</p>
         </div>
     </div>
+-->
+    <div class="card" style="width: 18rem; padding: 10px; margin:2px">
+        <img src="" class="card-img-top" alt="flag" id="flagImg">
+        <div class="card-body">
+          <h5 class="card-title" id="name">Country Name</h5>
+          <p class="card-text" id="flagDescription">Flag Description.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="officialName">Official Name</li>
+          <li class="list-group-item" id="region">Region</li>
+        </ul>
+      </div>
 
     <div style="justify-content: center; align-content: center; display: flex;">
         <table id="tblcountry" class="table table-success table-striped " style="width: 70%; ">
